@@ -21,14 +21,24 @@
 			<th>Fecha Publicacion</th>
 			<th>Salario Ofrecido</th>
 			<th>Descripcion</th>
+			<th>Destacada</th>
 		</tr>
 
 		<tr th:each="vacante:${listaVacantes}">
-			<td th:text=${vacante.id} />
-			<td th:text=${vacante.nombre} />
-			<td th:text=${vacante.fecha} />
-			<td th:text=${vacante.salario} />
-			<td th:text=${vacante.descripcion} />
+			<td th:text="${vacante.id}" />
+			<td th:text="${vacante.nombre}" />
+			<td th:text="${vacante.fecha}" />
+			<td th:text="${vacante.salario}" />
+			<td th:text="${vacante.descripcion}" />
+			<!-- 			<td th:text="${vacante.destacado}" ></td> -->
+			<!--  
+			<td th:text="${vacante.destacado == 1 ? 'Si' : 'No'}" />
+			-->
+			<td><span th:if="${vacante.destacado == 1}"
+				class="badge bg-success">Si</span> <span
+				th:unless="${vacante.destacado == 1}" class="badge bg-danger">No</span>
+			</td>
+
 		</tr>
 
 	</table>
