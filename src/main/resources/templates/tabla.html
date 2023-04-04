@@ -25,6 +25,7 @@
 			<th>Salario Ofrecido</th>
 			<th>Descripcion</th>
 			<th>Destacada</th>
+			<th>Detalle</th>
 		</tr>
 
 		<tr th:each="vacante:${listaVacantes}">
@@ -41,6 +42,9 @@
 			<td><span th:if="${vacante.destacado == 1}"
 				class="badge bg-success">Si</span> <span
 				th:unless="${vacante.destacado == 1}" class="badge bg-danger">No</span>
+			</td>
+			<td>
+			  <a href="#" class="btn btn-success">Detalle</a>
 			</td>
 
 		</tr>
