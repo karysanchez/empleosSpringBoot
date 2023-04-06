@@ -44,7 +44,7 @@
 				th:unless="${vacante.destacado == 1}" class="badge bg-danger">No</span>
 			</td>
 			<td>
-			  <a href="#" class="btn btn-success">Detalle</a>
+			  <a th:href="@{/vacantes/view/{id} (id=${vacante.id})}" class="btn btn-success">Detalle</a>
 			</td>
 
 		</tr>
