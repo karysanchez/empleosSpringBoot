@@ -12,5 +12,8 @@ import com.karosanpu.model.Vacante;
  *
  */
 public interface IVacantesService {
+	
 	List<Vacante> buscarTodas();
+
+	Vacante buscarPorId(Integer idVacante);
 }
