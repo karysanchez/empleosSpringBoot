@@ -16,4 +16,11 @@ public interface IVacantesService {
 	List<Vacante> buscarTodas();
 
 	Vacante buscarPorId(Integer idVacante);
+	
+	/**
+	 * Método para guardar datos de la vacantes
+	 * 
+	 * @param vacante
+	 */
+	void guardar(Vacante vacante);
 }

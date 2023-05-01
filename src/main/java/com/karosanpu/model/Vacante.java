@@ -18,6 +18,8 @@ public class Vacante {
 	private Double salario;
 	private Integer destacado;
 	private String imagen="no-image.png";
+	private String estatus;
+	private String detalles;
 	
 	/**
 	 * @return the id
@@ -100,16 +102,47 @@ public class Vacante {
 	public String getImagen() {
 		return imagen;
 	}
+	
 	/**
 	 * @param imagen the imagen to set
 	 */
 	public void setImagen(String imagen) {
 		this.imagen = imagen;
 	}
+	
+	/**
+	 * @return the estatus
+	 */
+	public String getEstatus() {
+		return estatus;
+	}
+	
+	/**
+	 * @param estatus the estatus to set
+	 */
+	public void setEstatus(String estatus) {
+		this.estatus = estatus;
+	}
+	
+	/**
+	 * @return the detalles
+	 */
+	public String getDetalles() {
+		return detalles;
+	}
+	
+	/**
+	 * @param detalles the detalles to set
+	 */
+	public void setDetalles(String detalles) {
+		this.detalles = detalles;
+	}
+	
 	@Override
 	public String toString() {
 		return "Vacante [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", fecha=" + fecha
-				+ ", salario=" + salario + "]";
+				+ ", salario=" + salario + ", destacado=" + destacado + ", imagen=" + imagen + ", estatus=" + estatus
+				+ ", detalles=" + detalles + "]";
 	}
 	
 }
