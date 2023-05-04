@@ -80,8 +80,8 @@ public class VacantesController {
 		
 		serviceVacantes.guardar(vacante);
 		System.out.println("Vacante: " + vacante);
-
-		return "vacantes/listVacantes";
+		
+		return "redirect:/vacantes/index";
 	}
 
 	/**

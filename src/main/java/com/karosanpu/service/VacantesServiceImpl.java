@@ -34,6 +34,8 @@ public class VacantesServiceImpl implements IVacantesService {
 			vacante1.setSalario(13000.0);
 			vacante1.setDestacado(1);
 			vacante1.setImagen("empresa1.png");
+			vacante1.setEstatus("Aprobada");
+			vacante1.setEstatus("Aprobada");
 
 			// Creamos la oferta de Trabajo 2.
 			Vacante vacante2 = new Vacante();
@@ -44,6 +46,7 @@ public class VacantesServiceImpl implements IVacantesService {
 			vacante2.setSalario(12000.0);
 			vacante2.setDestacado(0);
 			vacante2.setImagen("empresa2.png");
+			vacante2.setEstatus("Creada");
 
 			// Creamos la oferta de Trabajo 3.
 			Vacante vacante3 = new Vacante();
@@ -54,6 +57,7 @@ public class VacantesServiceImpl implements IVacantesService {
 			vacante3.setFecha(sdf.parse("10-02-2019"));
 			vacante3.setSalario(10500.0);
 			vacante3.setDestacado(0);
+			vacante3.setEstatus("Aprobada");
 
 			// Creamos la oferta de Trabajo 4.
 			Vacante vacante4 = new Vacante();
@@ -64,6 +68,7 @@ public class VacantesServiceImpl implements IVacantesService {
 			vacante4.setSalario(7500.0);
 			vacante4.setDestacado(1);
 			vacante4.setImagen("empresa3.png");
+			vacante4.setEstatus("Eliminada");
 
 			/**
 			 * Agregamos los 4 objetos de tipo Vacante a la lista ...
