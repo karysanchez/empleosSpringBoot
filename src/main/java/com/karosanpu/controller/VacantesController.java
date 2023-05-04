@@ -65,7 +65,7 @@ public class VacantesController {
 	 * @return
 	 */
 	@PostMapping("/save")
-	public String guardar(Vacante vacante, BindingResult result) {
+	public String guardar(Vacante vacante, BindingResult result, Model model) {
 
 		if (result.hasErrors()) {
 			
@@ -79,6 +79,7 @@ public class VacantesController {
 		}
 		
 		serviceVacantes.guardar(vacante);
+		model.addAttribute("msg", "Registro Guardado");
 		System.out.println("Vacante: " + vacante);
 		
 		return "redirect:/vacantes/index";
