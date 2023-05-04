@@ -79,6 +79,7 @@ public class VacantesController {
 		}
 		
 		serviceVacantes.guardar(vacante);
+		//para mensaje
 		model.addAttribute("msg", "Registro Guardado");
 		System.out.println("Vacante: " + vacante);
 		
