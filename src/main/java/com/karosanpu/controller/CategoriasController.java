@@ -8,13 +8,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.karosanpu.model.Categoria;
-import com.karosanpu.model.Vacante;
 import com.karosanpu.service.ICategoriasService;
 
 /**
@@ -31,7 +30,7 @@ public class CategoriasController {
 
 
 	/**
-	 * Método para listar vategorias en nueva pagina index
+	 * Método para listar categorias en nueva pagina index
 	 * @param model
 	 * @return
 	 */
@@ -43,18 +42,23 @@ public class CategoriasController {
 	}
 
 	// @GetMapping("/create")
-	@RequestMapping(value = "/create", method = RequestMethod.GET)
-	public String crear() {
+	@RequestMapping(value="/create", method=RequestMethod.GET)
+	public String crear(Categoria categoria) {
 		return "categorias/formCategoria";
 	}
 
 	// @PostMapping("/save")
-	@RequestMapping(value = "/save", method = RequestMethod.POST)
-	public String guardar(@RequestParam("nombre") String nombre, @RequestParam("descripcion") String descripcion) {
-		System.out.println("Categoria:" + nombre);
-		System.out.println("Descripcion: " + descripcion);
-
-		return "categorias/listCategorias";
+	@RequestMapping(value="/save", method=RequestMethod.POST)
+	public String guardar(Categoria categoria, BindingResult result, RedirectAttributes attributes) {
+		if (result.hasErrors()){		
+			System.out.println("Existieron errores");
+			return "categorias/formCategoria";
+		}	
+		
+		// Guadamos el objeto categoria en la bd
+		serviceCategorias.guardar(categoria);
+		attributes.addFlashAttribute("msg", "Los datos de la categoría fueron guardados!");		
+		return "redirect:/categorias/index";
 	}
 
 }
