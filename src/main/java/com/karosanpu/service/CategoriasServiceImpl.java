@@ -3,17 +3,18 @@
  */
 package com.karosanpu.service;
 
-import java.text.ParseException;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.karosanpu.model.Categoria;
-import com.karosanpu.model.Vacante;
 
 /**
  * @author ksanchezpu
  *
  */
+@Service
 public class CategoriasServiceImpl implements ICategoriasService {
 
 	/**
@@ -25,9 +26,9 @@ public class CategoriasServiceImpl implements ICategoriasService {
 	 * Llenado de datos para lista de categorias
 	 */
 	public CategoriasServiceImpl() {
-		
+
 		listaCategorias = new LinkedList<Categoria>();
-		
+
 		// Creamos la categoria 1.
 		Categoria categoria1 = new Categoria();
 		categoria1.setId(1);
@@ -51,12 +52,12 @@ public class CategoriasServiceImpl implements ICategoriasService {
 		categoria4.setId(4);
 		categoria4.setNombre("Ejemplo categoria 4");
 		categoria4.setDescripcion("Civil para diseñar puente peatonal.");
-		
+
 		// Creamos la categoria 5.
-				Categoria categoria5 = new Categoria();
-				categoria4.setId(5);
-				categoria4.setNombre("Educacion");
-				categoria4.setDescripcion("Maestros, tutores, etc.");
+		Categoria categoria5 = new Categoria();
+		categoria4.setId(5);
+		categoria4.setNombre("Educacion");
+		categoria4.setDescripcion("Maestros, tutores, etc.");
 
 		/**
 		 * Agregamos los 4 objetos de tipo Vacante a la lista ...
