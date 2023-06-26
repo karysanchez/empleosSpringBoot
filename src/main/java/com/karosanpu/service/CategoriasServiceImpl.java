@@ -55,9 +55,15 @@ public class CategoriasServiceImpl implements ICategoriasService {
 
 		// Creamos la categoria 5.
 		Categoria categoria5 = new Categoria();
-		categoria4.setId(5);
-		categoria4.setNombre("Educacion");
-		categoria4.setDescripcion("Maestros, tutores, etc.");
+		categoria5.setId(5);
+		categoria5.setNombre("Educacion");
+		categoria5.setDescripcion("Maestros, tutores, etc.");
+		
+		// Creamos la categoria 6.
+		Categoria categoria6 = new Categoria();
+		categoria6.setId(6);
+		categoria6.setNombre("Desarrollo de Software");
+		categoria6.setDescripcion("Trabajo para programadores");
 
 		/**
 		 * Agregamos los 4 objetos de tipo Vacante a la lista ...
@@ -67,6 +73,7 @@ public class CategoriasServiceImpl implements ICategoriasService {
 		listaCategorias.add(categoria3);
 		listaCategorias.add(categoria4);
 		listaCategorias.add(categoria5);
+		listaCategorias.add(categoria6);
 
 	}
 

@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.karosanpu.model.Vacante;
+import com.karosanpu.service.ICategoriasService;
 import com.karosanpu.service.IVacantesService;
 
 /**
@@ -35,6 +36,9 @@ public class VacantesController {
 
 	@Autowired
 	private IVacantesService serviceVacantes;
+	
+	@Autowired
+	private ICategoriasService serviceCategorias;
 	
 	/**
 	 * Método para listar vacantes en nueva pagina index
@@ -54,7 +58,8 @@ public class VacantesController {
 	 * @return
 	 */
 	@GetMapping("/create")
-	public String crear(Vacante vacante) {
+	public String crear(Vacante vacante, Model model) {
+		model.addAttribute("listadoCategorias", serviceCategorias.buscarTodas());
 		return "vacantes/formVacante";
 	}
 
