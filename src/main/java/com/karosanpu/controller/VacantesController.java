@@ -20,11 +20,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.karosanpu.model.Vacante;
 import com.karosanpu.service.ICategoriasService;
 import com.karosanpu.service.IVacantesService;
+import com.karosanpu.util.Utileria;
 
 /**
  * @author ksanchezpu
@@ -71,18 +73,29 @@ public class VacantesController {
 	 * @return
 	 */
 	@PostMapping("/save")
-	public String guardar(Vacante vacante, BindingResult result, RedirectAttributes attributes) {
+	public String guardar(Vacante vacante, BindingResult result, RedirectAttributes attributes, @RequestParam("archivoImagen") MultipartFile multiPart) {
 
+		//valida errores
 		if (result.hasErrors()) {
 			
 			for (ObjectError error: result.getAllErrors()){
 				System.out.println("Ocurrio un error: " + error.getDefaultMessage());
 				}
-
 			
 			return "vacantes/formVacante";
 			
 		}
+		
+		//carga archivos
+		if (!multiPart.isEmpty()) {
+			//String ruta = "/empleos/img-vacantes/"; // Linux/MAC
+			String ruta = "d:/tools/empleos/img-vacantes/"; // Windows
+			String nombreImagen = Utileria.guardarArchivo(multiPart, ruta);
+			if (nombreImagen != null){ // La imagen si se subio
+			// Procesamos la variable nombreImagen
+			vacante.setImagen(nombreImagen);
+			}
+			}
 		
 		serviceVacantes.guardar(vacante);
 		//para mensaje
