@@ -1,104 +1,84 @@
-/**
- * 
- */
 package com.karosanpu.service;
 
 import java.util.LinkedList;
 import java.util.List;
-
 import org.springframework.stereotype.Service;
-
 import com.karosanpu.model.Categoria;
 
-/**
- * @author ksanchezpu
- *
- */
 @Service
-public class CategoriasServiceImpl implements ICategoriasService {
+public class CategoriasServiceImpl implements ICategoriasService{
 
-	/**
-	 * Variable global para listado de categorias
-	 */
-	private List<Categoria> listaCategorias = null;
-
-	/**
-	 * Llenado de datos para lista de categorias
-	 */
+	private List<Categoria> lista = null;
+	
 	public CategoriasServiceImpl() {
-
-		listaCategorias = new LinkedList<Categoria>();
-
-		// Creamos la categoria 1.
-		Categoria categoria1 = new Categoria();
-		categoria1.setId(1);
-		categoria1.setNombre("Ejemplo categoria 1");
-		categoria1.setDescripcion("Solicitamos Ing. Civil para diseñar categoria1.");
-
-		// Creamos la categoria 2.
-		Categoria categoria2 = new Categoria();
-		categoria2.setId(2);
-		categoria2.setNombre("Ejemplo categoria 2");
-		categoria2.setDescripcion("Solicitamos Ing. Civil para diseña.");
-
-		// Creamos la categoria 3.
-		Categoria categoria3 = new Categoria();
-		categoria3.setId(3);
-		categoria3.setNombre("Ejemplo categoria 3");
-		categoria3.setDescripcion("Solicitamos Ing. puente peatonal.");
-
-		// Creamos la categoria 4.
-		Categoria categoria4 = new Categoria();
-		categoria4.setId(4);
-		categoria4.setNombre("Ejemplo categoria 4");
-		categoria4.setDescripcion("Civil para diseñar puente peatonal.");
-
-		// Creamos la categoria 5.
-		Categoria categoria5 = new Categoria();
-		categoria5.setId(5);
-		categoria5.setNombre("Educacion");
-		categoria5.setDescripcion("Maestros, tutores, etc.");
+		lista = new LinkedList<Categoria>();
 		
-		// Creamos la categoria 6.
-		Categoria categoria6 = new Categoria();
-		categoria6.setId(6);
-		categoria6.setNombre("Desarrollo de Software");
-		categoria6.setDescripcion("Trabajo para programadores");
-
+		// Creamos algunas Categorias para poblar la lista ...
+		
+		// Categoria 1
+		Categoria cat1 = new Categoria();
+		cat1.setId(1);
+		cat1.setNombre("Contabilidad");
+		cat1.setDescripcion("Descripcion de la categoria Contabilidad");
+		
+		// Categoria 2
+		Categoria cat2 = new Categoria();
+		cat2.setId(2);
+		cat2.setNombre("Ventas");
+		cat2.setDescripcion("Trabajos relacionados con Ventas");
+		
+					
+		// Categoria 3
+		Categoria cat3 = new Categoria();
+		cat3.setId(3);
+		cat3.setNombre("Comunicaciones");
+		cat3.setDescripcion("Trabajos relacionados con Comunicaciones");
+		
+		// Categoria 4
+		Categoria cat4 = new Categoria();
+		cat4.setId(4);
+		cat4.setNombre("Arquitectura");
+		cat4.setDescripcion("Trabajos de Arquitectura");
+		
+		// Categoria 5
+		Categoria cat5 = new Categoria();
+		cat5.setId(5);
+		cat5.setNombre("Educacion");
+		cat5.setDescripcion("Maestros, tutores, etc");
+		
+		// Categoria 6
+		Categoria cat6 = new Categoria();
+		cat6.setId(6);
+		cat6.setNombre("Desarrollo de software");
+		cat6.setDescripcion("Trabajo para programadores");
+		
 		/**
-		 * Agregamos los 4 objetos de tipo Vacante a la lista ...
+		 * Agregamos los 5 objetos de tipo Categoria a la lista ...
 		 */
-		listaCategorias.add(categoria1);
-		listaCategorias.add(categoria2);
-		listaCategorias.add(categoria3);
-		listaCategorias.add(categoria4);
-		listaCategorias.add(categoria5);
-		listaCategorias.add(categoria6);
+		lista.add(cat1);			
+		lista.add(cat2);
+		lista.add(cat3);
+		lista.add(cat4);
+		lista.add(cat5);
+		lista.add(cat6);
 
 	}
-
-	@Override
-	public void guardar(Categoria categoria) {
-		listaCategorias.add(categoria);
-
+	
+	public void guardar(Categoria categoria) {		
+		lista.add(categoria);
 	}
 
-	@Override
 	public List<Categoria> buscarTodas() {
-		return listaCategorias;
+		return lista;
 	}
 
-	@Override
-	public Categoria buscarPorId(Integer idCategoria) {
-		for (Categoria v : listaCategorias) {
-
-			if (v.getId() == idCategoria) {
-				return v;
+	public Categoria buscarPorId(Integer idCategoria) {			
+		for (Categoria cat : lista) {
+			if (cat.getId()==idCategoria) {
+				return cat;
 			}
-
-		}
-
-		return null;
+		}		
+		return null;	
 	}
 
 }

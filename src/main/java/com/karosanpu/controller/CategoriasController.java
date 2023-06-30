@@ -21,24 +21,18 @@ import com.karosanpu.service.ICategoriasService;
  *
  */
 @Controller
-@RequestMapping(value = "/categorias")
+@RequestMapping(value="/categorias")
 public class CategoriasController {
 
-	// Consumo de servicios
 	@Autowired
-	private ICategoriasService serviceCategorias;
-
-
-	/**
-	 * Método para listar categorias en nueva pagina index
-	 * @param model
-	 * @return
-	 */
-	@RequestMapping(value = "/index", method = RequestMethod.GET)
+   	private ICategoriasService serviceCategorias;
+	
+	// @GetMapping("/index")
+	@RequestMapping(value="/index", method=RequestMethod.GET)
 	public String mostrarIndex(Model model) {
 		List<Categoria> lista = serviceCategorias.buscarTodas();
-		model.addAttribute("listadoCategorias", lista);
-		return "categorias/listCategorias";
+    	model.addAttribute("categorias", lista);
+		return "categorias/listCategorias";		
 	}
 
 	// @GetMapping("/create")

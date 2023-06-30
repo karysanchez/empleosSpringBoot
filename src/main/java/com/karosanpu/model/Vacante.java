@@ -20,7 +20,6 @@ public class Vacante {
 	private String imagen="no-image.png";
 	private String estatus;
 	private String detalles;
-	private Categoria categoria;
 	
 	/**
 	 * @return the id
@@ -139,24 +138,11 @@ public class Vacante {
 		this.detalles = detalles;
 	}
 	
-	/**
-	 * @return the categoria
-	 */
-	public Categoria getCategoria() {
-		return categoria;
-	}
-	/**
-	 * @param categoria the categoria to set
-	 */
-	public void setCategoria(Categoria categoria) {
-		this.categoria = categoria;
-	}
-	
 	@Override
 	public String toString() {
 		return "Vacante [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", fecha=" + fecha
 				+ ", salario=" + salario + ", destacado=" + destacado + ", imagen=" + imagen + ", estatus=" + estatus
-				+ ", detalles=" + detalles + ", categoria=" + categoria + "]";
+				+ ", detalles=" + detalles + "]";
 	}
 	
 }
