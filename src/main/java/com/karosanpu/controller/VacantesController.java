@@ -38,7 +38,7 @@ import com.karosanpu.util.Utileria;
 public class VacantesController {
 
 	//inyectamos el valor de la propieda de la ruta donde guardar
-	@Value("${empleosSpringBoot.ruta.imagenes}")
+	@Value("${empleosapp.ruta.imagenes}")
 	private String ruta;
 	
 	@Autowired
